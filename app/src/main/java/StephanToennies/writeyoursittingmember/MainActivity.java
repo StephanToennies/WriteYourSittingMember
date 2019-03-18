@@ -1,4 +1,4 @@
-package com.example.writeyoursittingmember;
+package StephanToennies.writeyoursittingmember;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
