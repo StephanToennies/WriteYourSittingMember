@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#0155a0"
-    tools:context="StephanToennies.writeyoursittingmember.welcomScreen">
+    tools:context="StephanToennies.writeyoursittingmember.WelcomScreen">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="370dp"
         android:layout_height="203dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:src="@drawable/uecp_logo"
@@ -21,17 +21,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.404" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="366dp"
-        android:layout_height="138dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
+    <Button
+        android:id="@+id/buttonStartMainActivity"
+        android:layout_width="375dp"
+        android:layout_height="184dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="48dp"
+        android:background="#014582"
         android:text="Danken Sie Ihren Abgeordnenten für ihre gute Arbeit!"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffffff"
         android:textSize="35sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
