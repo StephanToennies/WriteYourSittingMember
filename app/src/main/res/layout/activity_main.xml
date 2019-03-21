@@ -108,11 +108,14 @@
         android:layout_height="25dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
+        android:layout_marginBottom="8dp"
         android:text="Betreff"
         android:textColor="#ffffff"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/inputSubject"
@@ -130,8 +133,9 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="380dp"
-        android:layout_height="244dp"
+        android:layout_height="236dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -141,7 +145,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Subject">
+        app:layout_constraintTop_toBottomOf="@+id/inputSubject">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/inputMessageToSittingMember"

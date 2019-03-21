@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intent = new Intent(Intent.ACTION_SEND);
-                
+
                 subject = editTextSubject.getText().toString();
                 massageToMember = editText.getText().toString();
 
@@ -51,8 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_SUBJECT, subject);
                 intent.putExtra(Intent.EXTRA_TEXT, massageToMember);
 
-                startActivity(Intent.createChooser(intent, "E-Mail gesendet."));
-
+                try {
+                    startActivity(Intent.createChooser(intent, "E-Mail gesendet."));
+                    finish();
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(MainActivity.this,
+                            "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
