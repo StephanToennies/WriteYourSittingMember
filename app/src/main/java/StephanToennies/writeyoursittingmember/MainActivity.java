@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 } catch (android.content.ActivityNotFoundException ex) {
                     Toast.makeText(MainActivity.this,
-                            "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                            "Es ist kein E-Mail Klient vorhanden.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -69,6 +69,15 @@ public class MainActivity extends AppCompatActivity {
         int memberID = rg.getCheckedRadioButtonId();
         rb = (RadioButton) findViewById(memberID);
 
+        switch(memberID){
+            case 0: eMail = "Max.Minimus@exaple.com"; break;
+            case 1: eMail = "Max.Mustermann@exaple.com"; break;
+            case 2: eMail = "Maxi.Musterfrau@exaple.com"; break;
+            case 3: eMail = "Maximilan.Mustermann@exaple.com"; break;
+            case 4: eMail = "Max.Maximus@exaple.com"; break;
+        }
+
+        /*
         String id_rb = rb.getText().toString();
 
         if(id_rb.equals("id00_MaxMinimus"))
@@ -81,5 +90,6 @@ public class MainActivity extends AppCompatActivity {
             eMail = "Maximilan.Mustermann@exaple.com";
         if(id_rb.equals("id04_MaxMaximus"))
             eMail = "Max.Maximus@exaple.com";
+            */
     }
 }
