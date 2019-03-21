@@ -22,7 +22,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="376dp"
-        android:layout_height="237dp"
+        android:layout_height="220dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="8dp"
@@ -33,29 +33,32 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <RadioGroup
+            android:id="@+id/idRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="218dp">
 
             <RadioButton
-                android:id="@+id/radioButton15"
+                android:id="@+id/id00_MaxMinimus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="setEmail"
                 android:text="Max Minimus"
                 android:textColor="#ffffff"
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton8"
+                android:id="@+id/id01_MaxMustermann"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="setEmail"
                 android:text="Max Mustermann"
                 android:textColor="#ffffff"
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton12"
+                android:id="@+id/id02_MaxiMusterfrau"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -64,16 +67,17 @@
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton13"
+                android:id="@+id/id03_MaximilanMustermann"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:onClick="setEmail"
                 android:text="Maximilian Mustermann"
                 android:textColor="#ffffff"
                 android:textSize="18sp" />
 
             <RadioButton
-                android:id="@+id/radioButton14"
+                android:id="@+id/id04_MaxMaximus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -84,7 +88,6 @@
         </RadioGroup>
 
     </LinearLayout>
-
 
 
     <ImageView
@@ -104,50 +107,66 @@
         android:layout_width="wrap_content"
         android:layout_height="25dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="36dp"
         android:text="Betreff"
         android:textColor="#ffffff"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"/>
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="299dp"
+        android:id="@+id/inputSubject"
+        android:layout_width="314dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/Subject"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="380dp"
-        android:layout_height="272dp"
+        android:layout_height="244dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:helperText="Bitte fügen Sie hier Ihre Nachricht ein."
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:helperTextEnabled="false"
+        app:layout_constraintBottom_toTopOf="@+id/send_Email"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/Subject">
 
         <android.support.design.widget.TextInputEditText
+            android:id="@+id/inputMessageToSittingMember"
             android:layout_width="match_parent"
-            android:layout_height="236dp"
-            android:hint="hint"
+            android:layout_height="238dp"
+            android:hint="Bitte fügen Sie hier Ihre Nachricht ein."
             android:textAlignment="viewStart"
             android:textAllCaps="false"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff" />
     </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/send_Email"
+        android:layout_width="374dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#014582"
+        android:text="E-Mail versenden"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
