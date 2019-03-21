@@ -106,22 +106,18 @@
         android:id="@+id/inputSubject"
         android:layout_width="377dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Betreff"
         android:inputType="textPersonName"
         android:textColor="#ffffff"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        tools:layout_editor_absoluteX="17dp" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="376dp"
-        android:layout_height="224dp"
+        android:layout_height="275dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -129,15 +125,14 @@
         app:helperTextEnabled="false"
         app:layout_constraintBottom_toTopOf="@+id/send_Email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputSubject"
-        app:layout_constraintVertical_bias="0.375">
+        app:layout_constraintTop_toBottomOf="@+id/inputSubject">
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/inputMessageToSittingMember"
             android:layout_width="match_parent"
-            android:layout_height="203dp"
+            android:layout_height="238dp"
             android:hint="Bitte fügen Sie hier Ihre Nachricht ein."
             android:textAlignment="viewStart"
             android:textAllCaps="false"
@@ -151,13 +146,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
         android:background="#014582"
         android:text="E-Mail versenden"
         android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent" />
 
 
