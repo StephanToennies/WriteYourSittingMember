@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         sendE_Mail.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Intent.ACTION_SEND);
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
 
                 subject = editTextSubject.getText().toString();
                 massageToMember = editText.getText().toString();
@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             case 2: eMail = "Maxi.Musterfrau@exaple.com"; break;
             case 3: eMail = "Maximilan.Mustermann@exaple.com"; break;
             case 4: eMail = "Max.Maximus@exaple.com"; break;
+            default: break;
         }
 
         /*
