@@ -28,39 +28,42 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         rg = (RadioGroup) findViewById(R.id.idRadioGroup);
-    }
-
-    public void sendE_Mail(){
-        editTextSubject = (EditText) findViewById(R.id.inputSubject);
-        editText = (EditText) findViewById(R.id.inputMessageToSittingMember);
-
         sendE_Mail = (Button) findViewById(R.id.send_Email);
 
         sendE_Mail.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intent = new Intent(Intent.ACTION_SENDTO);
-
-                subject = editTextSubject.getText().toString();
-                massageToMember = editText.getText().toString();
-
-                //
-                intent.setData(Uri.parse("mailto:"));
-                intent.setType("text/plain");
-
-                intent.putExtra(Intent.EXTRA_EMAIL, eMail);
-                intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-                intent.putExtra(Intent.EXTRA_TEXT, massageToMember);
-
-                try {
-                    startActivity(Intent.createChooser(intent, "E-Mail gesendet."));
-                    finish();
-                } catch (android.content.ActivityNotFoundException ex) {
-                    Toast.makeText(MainActivity.this,
-                            "Es ist kein E-Mail Klient vorhanden.", Toast.LENGTH_SHORT).show();
-                }
+                sendE_Mail();
             }
         });
+    }
+
+    public void sendE_Mail(){
+        System.out.println("Senden geklickt");
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+
+        editTextSubject = (EditText) findViewById(R.id.inputSubject);
+        editText = (EditText) findViewById(R.id.inputMessageToSittingMember);
+
+
+        subject = editTextSubject.getText().toString();
+        massageToMember = editText.getText().toString();
+
+        //
+        intent.setData(Uri.parse("mailto:"));
+        intent.setType("text/plain");
+
+        intent.putExtra(Intent.EXTRA_EMAIL, eMail);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, massageToMember);
+
+        try {
+            startActivity(Intent.createChooser(intent, "E-Mail gesendet."));
+            finish();
+        } catch (android.content.ActivityNotFoundException ex) {
+            Toast.makeText(MainActivity.this,
+                    "Es ist kein E-Mail Klient vorhanden.", Toast.LENGTH_SHORT).show();
+        }
 
 
     }
