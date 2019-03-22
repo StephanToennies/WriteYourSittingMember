@@ -33,29 +33,27 @@ public class MainActivity extends AppCompatActivity {
         sendE_Mail.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                System.out.println("Senden geklickt");
                 sendE_Mail();
             }
         });
     }
 
     public void sendE_Mail(){
-        System.out.println("Senden geklickt");
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        Intent intent = new Intent(Intent.ACTION_SEND);
 
         editTextSubject = (EditText) findViewById(R.id.inputSubject);
         editText = (EditText) findViewById(R.id.inputMessageToSittingMember);
-
-
+        
         subject = editTextSubject.getText().toString();
         massageToMember = editText.getText().toString();
-
-        //
-        intent.setData(Uri.parse("mailto:"));
-        intent.setType("text/plain");
 
         intent.putExtra(Intent.EXTRA_EMAIL, eMail);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, massageToMember);
+
+        intent.setData(Uri.parse("mailto:"));
+        intent.setType("text/plain");
 
         try {
             startActivity(Intent.createChooser(intent, "E-Mail gesendet."));
@@ -64,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this,
                     "Es ist kein E-Mail Klient vorhanden.", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
     public void setEmail(View v){
