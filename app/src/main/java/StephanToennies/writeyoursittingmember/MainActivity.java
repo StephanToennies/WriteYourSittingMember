@@ -48,12 +48,14 @@ public class MainActivity extends AppCompatActivity {
         subject = editTextSubject.getText().toString();
         massageToMember = editText.getText().toString();
 
+        intent.setData(Uri.parse("mailto:"));
+        intent.setType("text/plain");
+
         intent.putExtra(Intent.EXTRA_EMAIL, eMail);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, massageToMember);
 
-        intent.setData(Uri.parse("mailto:"));
-        intent.setType("text/plain");
+
 
         try {
             startActivity(Intent.createChooser(intent, "E-Mail gesendet."));
