@@ -67,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
     public void setEmail(View v){
         int memberID = rg.getCheckedRadioButtonId();
         rb = (RadioButton) findViewById(memberID);
-
+        
+        /*
         switch(memberID){
             case 0: eMail = "Max.Minimus@exaple.com"; break;
             case 1: eMail = "Max.Mustermann@exaple.com"; break;
@@ -76,20 +77,23 @@ public class MainActivity extends AppCompatActivity {
             case 4: eMail = "Max.Maximus@exaple.com"; break;
             default: break;
         }
+        */
+        int id_00 = R.id.id00_MaxMinimus;
+        int id_01 = R.id.id01_MaxMustermann;
+        int id_02 = R.id.id02_MaxiMusterfrau;
+        int id_03 = R.id.id03_MaximilanMustermann;
+        int id_04 = R.id.id04_MaxMaximus;
 
-        /*
-        String id_rb = rb.getText().toString();
-
-        if(id_rb.equals("id00_MaxMinimus"))
+        if(memberID == id_00)
              eMail = "Max.Minimus@exaple.com";
-        if(id_rb.equals("id01_MaxMustermann"))
+        if(memberID == id_01)
             eMail = "Max.Mustermann@exaple.com";
-        if(id_rb.equals("id02_MaxiMusterfrau"))
+        if(memberID == id_02)
             eMail = "Maxi.Musterfrau@exaple.com";
-        if(id_rb.equals("id03_MaximilanMustermann"))
+        if(memberID == id_03)
             eMail = "Maximilan.Mustermann@exaple.com";
-        if(id_rb.equals("id04_MaxMaximus"))
+        if(memberID == id_04)
             eMail = "Max.Maximus@exaple.com";
-            */
+
     }
 }
