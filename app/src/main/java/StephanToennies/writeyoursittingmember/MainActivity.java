@@ -84,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         int id_03 = R.id.id03_MaximilanMustermann;
         int id_04 = R.id.id04_MaxMaximus;
 
+        System.out.println(memberID);
+
         if(memberID == id_00)
              eMail = "Max.Minimus@exaple.com";
         if(memberID == id_01)
@@ -95,5 +97,7 @@ public class MainActivity extends AppCompatActivity {
         if(memberID == id_04)
             eMail = "Max.Maximus@exaple.com";
 
+        System.out.println(eMail);
     }
+
 }
