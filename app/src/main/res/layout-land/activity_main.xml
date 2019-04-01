@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0155a0"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="717dp"
+        android:layout_height="70sp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="112dp"
+            android:layout_height="70dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/uecp_logo" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="595dp"
+            android:layout_height="38dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="8sp"
+            android:layout_marginTop="15sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="17dp"
+            android:layout_toEndOf="@+id/imageView2"
+            android:text="Union der Europäischen Christlichen Parteien"
+            android:textColor="#FFFFFF"
+            android:textSize="29sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="716dp"
+        android:layout_height="322dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbarStyle="outsideOverlay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8sp"
+            android:layout_marginTop="8sp"
+            android:layout_marginEnd="8sp"
+            android:layout_marginBottom="8sp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="264dp"
+                    android:layout_height="180sp"
+                    android:layout_marginStart="8sp"
+                    android:layout_marginTop="8sp"
+                    android:layout_marginEnd="8sp"
+                    android:orientation="vertical">
+
+                    <RadioGroup
+                        android:id="@+id/idRadioGroup"
+                        android:layout_width="360sp"
+                        android:layout_height="180sp">
+
+                        <RadioButton
+                            android:id="@+id/id00_MaxMinimus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="setEmail"
+                            android:text="Max Minimus"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+
+                        <RadioButton
+                            android:id="@+id/id01_MaxMustermann"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="setEmail"
+                            android:text="Max Mustermann"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+
+                        <RadioButton
+                            android:id="@+id/id02_MaxiMusterfrau"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Maxi Musterfrau"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+
+                        <RadioButton
+                            android:id="@+id/id03_MaximilanMustermann"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:onClick="setEmail"
+                            android:text="Maximilian Mustermann"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+
+                        <RadioButton
+                            android:id="@+id/id04_MaxMaximus"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Max Maximus"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/inputSubject"
+                        android:layout_width="360sp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8sp"
+                        android:layout_marginTop="8sp"
+                        android:ems="10"
+                        android:hint="Betreff"
+                        android:inputType="textPersonName"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:textColor="#ffffff" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/textInputLayout"
+                        android:layout_width="360sp"
+                        android:layout_height="200sp"
+                        android:layout_marginStart="8sp"
+                        android:layout_marginTop="8sp"
+                        android:layout_marginEnd="8sp"
+                        app:helperTextEnabled="false">
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <android.support.design.widget.TextInputEditText
+                                    android:id="@+id/inputMessageToSittingMember"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:hint="Bitte fügen Sie hier Ihre Nachricht ein."
+                                    android:isScrollContainer="true"
+                                    android:selectAllOnFocus="true"
+                                    android:singleLine="false"
+                                    android:textAlignment="viewStart"
+                                    android:textAllCaps="false"
+                                    android:textColor="#ffffff"
+                                    android:textColorHint="#ffffff" />
+                            </LinearLayout>
+                        </ScrollView>
+
+                    </android.support.design.widget.TextInputLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/send_Email"
+                android:layout_width="360sp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8sp"
+                android:layout_marginTop="10sp"
+                android:layout_marginEnd="8sp"
+                android:background="#014582"
+                android:text="E-Mail versenden"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
