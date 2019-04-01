@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
             default: break;
         }
         */
+
         int id_00 = R.id.id00_MaxMinimus;
         int id_01 = R.id.id01_MaxMustermann;
         int id_02 = R.id.id02_MaxiMusterfrau;
