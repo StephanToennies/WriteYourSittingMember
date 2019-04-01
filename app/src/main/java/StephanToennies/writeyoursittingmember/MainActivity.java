@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Store the data
         editor.putString("subject", String.valueOf(editTextSubject.getText()));
-        editor.putString("concerning", String.valueOf(editTextSubject.getText()));
+        editor.putString("from", String.valueOf(editTextSubject.getText()));
 
         editor.putString("message", String.valueOf(massageToMember.getText()));
         editor.putString("concerning", String.valueOf(massageToMember.getText()));
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         editTextSubject.setText(settings.getString("subject",""));
-        editTextSubject.setText(settings.getString("concerning", ""));
+        editTextSubject.setText(settings.getString("from", ""));
 
         editTextSubject.setText(settings.getString("message",""));
         editTextSubject.setText(settings.getString("concerning", ""));
