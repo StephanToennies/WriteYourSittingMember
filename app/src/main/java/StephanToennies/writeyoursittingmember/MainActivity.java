@@ -1,23 +1,37 @@
 package StephanToennies.writeyoursittingmember;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     EditText editTextSubject;
     EditText editText;
-    String eMail, subject, massageToMember;
+    String eMail, subject /*, massageToMember*/;
+    EditText massageToMember;
 
     Button sendE_Mail;
+
+    //for cache
+    private static Context context;
+    SharedPreferences.Editor editor;
+    SharedPreferences settings;
 
     RadioGroup rg;
     RadioButton rb;
@@ -26,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //for cache
+        context = getApplicationContext();
+        settings = context.getSharedPreferences("userdetails", MODE_PRIVATE); //
+        editor = settings.edit(); // Zum Schreiben.
 
         rg = (RadioGroup) findViewById(R.id.idRadioGroup);
         sendE_Mail = (Button) findViewById(R.id.send_Email);
@@ -37,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 sendE_Mail();
             }
         });
+
     }
 
     public void sendE_Mail(){
@@ -46,14 +66,14 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.inputMessageToSittingMember);
         
         subject = editTextSubject.getText().toString();
-        massageToMember = editText.getText().toString();
+        //massageToMember = editText.getText()massageToMember;
 
         intent.setData(Uri.parse("mailto:"));
         intent.setType("text/plain");
 
         intent.putExtra(Intent.EXTRA_EMAIL, eMail);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        intent.putExtra(Intent.EXTRA_TEXT, massageToMember);
+        intent.putExtra(Intent.EXTRA_TEXT, massageToMember.toString());
 
 
 
@@ -69,17 +89,6 @@ public class MainActivity extends AppCompatActivity {
     public void setEmail(View v){
         int memberID = rg.getCheckedRadioButtonId();
         rb = (RadioButton) findViewById(memberID);
-        
-        /*
-        switch(memberID){
-            case 0: eMail = "Max.Minimus@exaple.com"; break;
-            case 1: eMail = "Max.Mustermann@exaple.com"; break;
-            case 2: eMail = "Maxi.Musterfrau@exaple.com"; break;
-            case 3: eMail = "Maximilan.Mustermann@exaple.com"; break;
-            case 4: eMail = "Max.Maximus@exaple.com"; break;
-            default: break;
-        }
-        */
 
         int id_00 = R.id.id00_MaxMinimus;
         int id_01 = R.id.id01_MaxMustermann;
@@ -102,5 +111,31 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println(eMail);
     }
+
+    private void setEditTextDate(TextView textViewDate) {
+        Date today = Calendar.getInstance().getTime();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH:mm");
+        String folderName = formatter.format(today);
+        textViewDate.setText(folderName);
+    }
+
+    @Override //TODO Storage implementierung erweitern und Radiobuttopn-Trigger mit speichern
+    public void onPause() {
+        super.onPause();
+
+        // Store the data:
+        editor.putString("message", String.valueOf(massageToMember.getText()));
+        editor.putString("concerning", String.valueOf(massageToMember.getText()));
+
+        editor.commit();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        massageToMember.setText(settings.getString("message",""));
+        massageToMember.setText(settings.getString("concerning", ""));
+    }
+
 
 }
