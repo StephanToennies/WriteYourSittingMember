@@ -145,8 +145,8 @@ public class MainActivity extends AppCompatActivity {
         editTextSubject.setText(settings.getString("subject",""));
         editTextSubject.setText(settings.getString("from", ""));
 
-        editTextSubject.setText(settings.getString("message",""));
-        editTextSubject.setText(settings.getString("concerning", ""));
+        massageToMember.setText(settings.getString("message",""));
+        massageToMember.setText(settings.getString("concerning", ""));
     }
 
 
