@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         editor = settings.edit();
 
         massageToMember = (EditText) findViewById(R.id.inputMessageToSittingMember);
+        editTextSubject = (EditText) findViewById(R.id.inputSubject);
 
         rg = (RadioGroup) findViewById(R.id.idRadioGroup);
         sendE_Mail = (Button) findViewById(R.id.send_Email);
@@ -127,8 +128,12 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
 
         // Store the data
+        editor.putString("message", String.valueOf(editTextSubject.getText()));
+        editor.putString("concerning", String.valueOf(editTextSubject.getText()));
+
         editor.putString("message", String.valueOf(massageToMember.getText()));
         editor.putString("concerning", String.valueOf(massageToMember.getText()));
+
 
         editor.commit();
     }
@@ -136,8 +141,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        massageToMember.setText(settings.getString("message",""));
-        massageToMember.setText(settings.getString("concerning", ""));
+
+        editTextSubject.setText(settings.getString("message",""));
+        editTextSubject.setText(settings.getString("concerning", ""));
+
+        editTextSubject.setText(settings.getString("message",""));
+        editTextSubject.setText(settings.getString("concerning", ""));
     }
 
 
