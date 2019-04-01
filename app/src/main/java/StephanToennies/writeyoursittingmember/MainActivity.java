@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button sendE_Mail;
 
-    //for cache
+    //for local storage
     private static Context context;
     SharedPreferences.Editor editor;
     SharedPreferences settings;
@@ -41,10 +41,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //for cache
+        //for local storage
         context = getApplicationContext();
-        settings = context.getSharedPreferences("userdetails", MODE_PRIVATE); //
-        editor = settings.edit(); // Zum Schreiben.
+        settings = context.getSharedPreferences("userdetails", MODE_PRIVATE);
+        editor = settings.edit();
+
+        massageToMember = (EditText) findViewById(R.id.inputMessageToSittingMember);
 
         rg = (RadioGroup) findViewById(R.id.idRadioGroup);
         sendE_Mail = (Button) findViewById(R.id.send_Email);
@@ -66,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.inputMessageToSittingMember);
         
         subject = editTextSubject.getText().toString();
-        //massageToMember = editText.getText()massageToMember;
+        massageToMember = editText;
+        //massageToMember = editText.getText();
 
         intent.setData(Uri.parse("mailto:"));
         intent.setType("text/plain");
@@ -123,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
 
-        // Store the data:
+        // Store the data
         editor.putString("message", String.valueOf(massageToMember.getText()));
         editor.putString("concerning", String.valueOf(massageToMember.getText()));
 
