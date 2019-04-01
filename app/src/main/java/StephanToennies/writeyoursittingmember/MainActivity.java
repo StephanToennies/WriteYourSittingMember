@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendE_Mail(){
-        Intent intent = new Intent(Intent.ACTION_SEND);
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
 
         editTextSubject = (EditText) findViewById(R.id.inputSubject);
         editText = (EditText) findViewById(R.id.inputMessageToSittingMember);
@@ -74,11 +74,13 @@ public class MainActivity extends AppCompatActivity {
 
         intent.setData(Uri.parse("mailto:"));
         intent.setType("text/plain");
+        //TODO subject parsen
 
+        /* Nur mit ACTION_SENT
         intent.putExtra(Intent.EXTRA_EMAIL, eMail);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, massageToMember.toString());
-
+        */
 
 
         try {
