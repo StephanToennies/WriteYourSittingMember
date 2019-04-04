@@ -71,15 +71,17 @@ public class MainActivity extends AppCompatActivity {
         //massageToMember = editText.getText();
 
         intent.setData(Uri.parse(eMail));
+        /*
         intent.setData(Uri.parse("mailto:"));
         intent.setType("text/plain");
+        */
         //TODO subject parsen
 
         /* Nur mit ACTION_SENT
         intent.putExtra(Intent.EXTRA_EMAIL, eMail);
+        */
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, massageToMember.toString());
-        */
 
 
         try {
