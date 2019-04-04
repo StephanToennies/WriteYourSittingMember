@@ -11,17 +11,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     EditText editTextSubject;
     EditText editText;
-    String eMail, subject /*, massageToMember*/;
+    String eMail, subject;
     EditText massageToMember;
 
     Button sendE_Mail;
@@ -47,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         massageToMember = (EditText) findViewById(R.id.inputMessageToSittingMember);
         editTextSubject = (EditText) findViewById(R.id.inputSubject);
 
+        //for triggering the radio buttons
         rg = (RadioGroup) findViewById(R.id.idRadioGroup);
         sendE_Mail = (Button) findViewById(R.id.send_Email);
 
@@ -61,25 +58,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendE_Mail(){
-        Intent intent = new Intent(Intent.ACTION_SEND);
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
 
         editTextSubject = (EditText) findViewById(R.id.inputSubject);
         editText = (EditText) findViewById(R.id.inputMessageToSittingMember);
         
         subject = editTextSubject.getText().toString();
         massageToMember = editText;
-        //massageToMember = editText.getText();
 
         intent.setData(Uri.parse(eMail));
-        /*
-        intent.setData(Uri.parse("mailto:"));
-        intent.setType("text/plain");
-        */
-        //TODO subject parsen
 
-        /* Nur mit ACTION_SENT
-        intent.putExtra(Intent.EXTRA_EMAIL, eMail);
-        */
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, massageToMember.toString());
 
@@ -105,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         System.out.println(memberID);
 
+        //find id and set the right e-mail adress
         if(memberID == id_00)
              eMail = "Max.Minimus@exaple.com";
         if(memberID == id_01)
@@ -119,14 +108,8 @@ public class MainActivity extends AppCompatActivity {
         System.out.println(eMail);
     }
 
-    private void setEditTextDate(TextView textViewDate) {
-        Date today = Calendar.getInstance().getTime();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH:mm");
-        String folderName = formatter.format(today);
-        textViewDate.setText(folderName);
-    }
 
-    @Override //TODO Storage Radiobuttopn-Trigger mit speichern
+    @Override
     public void onPause() {
         super.onPause();
 
@@ -148,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
+        //load data from storage
         eMail = settings.getString("EMail","");
         eMail = settings.getString("to","");
 
