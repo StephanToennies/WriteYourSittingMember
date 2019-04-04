@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void sendE_Mail(){
-        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        Intent intent = new Intent(Intent.ACTION_SEND);
 
         editTextSubject = (EditText) findViewById(R.id.inputSubject);
         editText = (EditText) findViewById(R.id.inputMessageToSittingMember);
@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
         textViewDate.setText(folderName);
     }
 
-    @Override //TODO Storage implementierung erweitern und Radiobuttopn-Trigger mit speichern
+    @Override //TODO Storage Radiobuttopn-Trigger mit speichern
     public void onPause() {
         super.onPause();
 
