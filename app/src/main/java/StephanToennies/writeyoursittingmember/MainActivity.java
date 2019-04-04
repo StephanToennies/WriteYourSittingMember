@@ -14,8 +14,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -72,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         massageToMember = editText;
         //massageToMember = editText.getText();
 
+        intent.setData(Uri.parse(eMail));
         intent.setData(Uri.parse("mailto:"));
         intent.setType("text/plain");
         //TODO subject parsen
@@ -130,6 +129,9 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
 
         // Store the data
+        editor.putString("EMail", String.valueOf(eMail));
+        editor.putString("to", String.valueOf(eMail));
+
         editor.putString("subject", String.valueOf(editTextSubject.getText()));
         editor.putString("from", String.valueOf(editTextSubject.getText()));
 
@@ -143,6 +145,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+
+        eMail = settings.getString("EMail","");
+        eMail = settings.getString("to","");
 
         editTextSubject.setText(settings.getString("subject",""));
         editTextSubject.setText(settings.getString("from", ""));
